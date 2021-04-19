@@ -1,4 +1,5 @@
 import React from "react";
+import { data } from "../static/players";
 export function Profile() {
   return (
     <main id="player-profile">
@@ -11,8 +12,24 @@ export function Profile() {
           <span id="team">Clippers</span>
         </i>
         <h3 id="height">Height</h3>
-        <h3 id="weight">Weight</h3>
+        <h3 id="weight">{Players()}</h3>
       </div>
     </main>
   );
 }
+
+export const Players = () => {
+  return (
+    <>
+      <div className="stock-container">
+        {data.map((data, key) => {
+          return (
+            <div key={key}>
+              {data.first_name + " , " + data.last_name + " ,"}
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+};
